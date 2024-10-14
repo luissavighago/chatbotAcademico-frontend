@@ -1,0 +1,50 @@
+.message-item {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 20px 0;
+  gap: 10px;
+  font-family: 'Poppins', sans-serif;
+  min-width: 100%;
+}
+
+.sender{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user {
+  background-color: yellow;
+}
+
+.chatbot {
+  background-color: cyan;
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sender-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.message-text {
+  color: var(--text-color);
+  padding-left: 40px;
+  width: 100%;
+  word-wrap: break-word;
+}

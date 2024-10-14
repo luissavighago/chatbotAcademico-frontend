@@ -1,0 +1,19 @@
+.header-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--primary-color);/* Cor de fundo */
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  font-family: 'Poppins', sans-serif;
+}

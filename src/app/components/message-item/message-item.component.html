@@ -1,0 +1,13 @@
+<div class="message-item">
+  <div class="sender">
+    @if(type === 'pergunta'){
+      <div class="avatar user"></div>
+    }@else {
+      <div class="avatar chatbot"></div>
+    }
+    <span class="sender-name">{{ type === 'pergunta' ? 'Você' : 'Chatbot'}}</span>
+  </div>
+  <div class="message-content"> 
+    <p class="message-text">{{text}}</p>
+  </div>
+</div>

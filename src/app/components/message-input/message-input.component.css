@@ -1,0 +1,36 @@
+.message-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+}
+
+.message-input {
+  padding: 10px;
+  font-size: 1rem;
+  border: solid 1px;
+  border-radius: 5px;
+  border-color: var(--secondary-color);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  width: 100%;
+}
+
+.send-button {
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  color: var(--primary-color);
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.send-button:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: solid 1px;
+  border-color: var(--secondary-color);
+}
