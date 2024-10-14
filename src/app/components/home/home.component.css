@@ -28,7 +28,6 @@
   text-align: center;
   font-size: 3rem;
   color: var(--text-color);
-  font-family: 'Poppins', sans-serif;
 }
 .home-message-input-container{
   display: flex;
