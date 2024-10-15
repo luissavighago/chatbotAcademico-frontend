@@ -13,3 +13,13 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
+body{
+  background-color: var(--primary-color);
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

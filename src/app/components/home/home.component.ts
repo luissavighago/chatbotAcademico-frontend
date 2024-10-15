@@ -1,13 +1,17 @@
 import { Component} from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { MessageInputComponent } from '../message-input/message-input.component';
-import { MessageItemComponent } from '../message-item/message-item.component';
+import { MessageListComponent } from '../message-list/message-list.component';
 import { UUID } from 'crypto';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, MessageInputComponent, MessageItemComponent],
+  imports: [
+    HeaderComponent,
+    MessageInputComponent,
+    MessageListComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
