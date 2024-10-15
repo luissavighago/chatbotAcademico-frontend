@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { UUID } from 'crypto';
+import { Component, input, computed } from '@angular/core';
+import { MessageType } from '../../enum/messagetype.enum';
+import { Message } from '../../interfaces/message.interface';
 
 @Component({
   selector: 'app-message-item',
@@ -9,7 +10,9 @@ import { UUID } from 'crypto';
   styleUrl: './message-item.component.css'
 })
 export class MessageItemComponent {
-  @Input() type: 'pergunta' | 'resposta' = 'pergunta';
-  @Input() id!: UUID;
-  @Input() text!: string;
+  message = input.required<Message>();
+  MessageType = MessageType;
+
+  messageText = computed(() => this.message().text);
+  messageType = computed(() => this.message().type);
 }

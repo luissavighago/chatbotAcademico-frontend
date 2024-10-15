@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MessageItemComponent } from '../message-item/message-item.component';
+import { Message } from '../../interfaces/message.interface';
 
 @Component({
   selector: 'app-message-list',
@@ -9,5 +10,5 @@ import { MessageItemComponent } from '../message-item/message-item.component';
   styleUrl: './message-list.component.css'
 })
 export class MessageListComponent {
-
+  @Input() messages: Message[] = [];
 }

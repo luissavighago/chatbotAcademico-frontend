@@ -1,13 +1,13 @@
 <div class="message-item">
   <div class="sender">
-    @if(type === 'pergunta'){
+    @if(messageType() === MessageType.Question){
       <div class="avatar user"></div>
     }@else {
       <div class="avatar chatbot"></div>
     }
-    <span class="sender-name">{{ type === 'pergunta' ? 'Você' : 'Chatbot'}}</span>
+    <span class="sender-name">{{ messageType() === MessageType.Answer ? 'Você' : 'Chatbot'}}</span>
   </div>
   <div class="message-content"> 
-    <p class="message-text">{{text}}</p>
+    <p class="message-text">{{messageText()}}</p>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <app-header></app-header>
 <main class="home-main-container">
   <div class="home-chat-container">
-    @if(id == null){
+    @if(chat.messages == null || chat.messages.length <= 0){
       <div class="home-title-container">
         <h1 class="home-title">Olá, como posso te ajudar?</h1>
       </div>
