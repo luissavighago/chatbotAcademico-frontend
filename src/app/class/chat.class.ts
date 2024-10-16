@@ -1,12 +1,7 @@
 import { UUID } from "crypto";
-import { Message } from "./message.class";
+import { Message } from "./message.interface";
 
-export class Chat {
+export interface Chat {
   id?: UUID;
   messages?: Message[]
-
-  constructor(id: UUID, messages: Message[]) {
-    this.id = id;
-    this.messages = messages;
-  }
 }

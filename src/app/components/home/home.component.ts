@@ -3,8 +3,7 @@ import { HeaderComponent } from '../header/header.component';
 import { MessageInputComponent } from '../message-input/message-input.component';
 import { MessageListComponent } from '../message-list/message-list.component';
 import { Chat } from '../../class/chat.class';
-import { Message } from '../../class/message.class';
-import { MessageType } from '../../enum/messagetype.enum';
+import { Message } from '../../class/message.interface';
 
 @Component({
   selector: 'app-home',
@@ -21,14 +20,11 @@ export class HomeComponent {
   chat: Chat;
 
   constructor() {
-    this.chat = new Chat(
-      "2bdd0475-fc9d-4f3c-8087-7ddd97592287",
-      [
-        new Message("2bdd0475-fc9d-4f3c-8087-7ddd97592287","Olá, como vai?",MessageType.Question),
-        new Message("2bdd0475-fc9d-4f3c-8087-7ddd97592287","Vou bem e vc?",MessageType.Answer),
-        new Message("2bdd0475-fc9d-4f3c-8087-7ddd97592287","Olá, como vai?",MessageType.Question),
-        new Message("2bdd0475-fc9d-4f3c-8087-7ddd97592287","Vou bem e vc?",MessageType.Answer)
-      ]
-    )
+    this.chat = {messages:[]};
+  }
+
+  onMessageSubmitted(message: Message) {
+    console.log("Mensagem enviada: "+message)
+    this.chat.messages?.push(message);
   }
 }
