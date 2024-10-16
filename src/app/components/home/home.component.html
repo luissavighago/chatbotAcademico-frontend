@@ -7,7 +7,7 @@
       </div>
     }@else{
       <div class="home-messages-container">
-        <app-message-list></app-message-list>
+        <app-message-list [messages]="chat.messages"></app-message-list>
       </div>
     }
     <app-message-input class="home-message-input-container"></app-message-input>

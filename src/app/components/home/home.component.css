@@ -13,9 +13,10 @@
   justify-content: center;
   align-items: center;
   width: 800px;
-  padding: 20px;
-  gap: 20px;
+  padding: 18px;
+  gap: 18px;
   min-height: 100%;
+  margin-top: 30px;
 }
 .home-title-container{
   flex:1;

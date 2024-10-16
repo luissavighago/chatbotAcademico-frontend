@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   background-color: var(--primary-color);/* Cor de fundo */
-  padding: 15px 20px;
+  padding: 16px 16px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
