@@ -10,7 +10,7 @@ export class ChatService {
   
   constructor() { }
 
-  sendMessage(){
-    //TODO - Implementar envio de mensagens
+  sendMessage(payload: any) {
+    return this.httpClient.post<any>("http://localhost:8080/chatbot/ask", payload);
   }
 }

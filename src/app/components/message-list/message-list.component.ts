@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MessageItemComponent } from '../message-item/message-item.component';
-import { Message } from '../../class/message.interface';
+import { Message } from '../../interfaces/message.interface';
 
 @Component({
   selector: 'app-message-list',

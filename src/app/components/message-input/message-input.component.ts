@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Message } from '../../class/message.interface';
+import { Message } from '../../interfaces/message.interface';
 import { MessageType } from '../../enum/messagetype.enum';
 import { FormsModule } from '@angular/forms';
 
