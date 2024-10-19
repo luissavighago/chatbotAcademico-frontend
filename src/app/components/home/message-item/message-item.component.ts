@@ -1,6 +1,6 @@
 import { Component, input, computed } from '@angular/core';
-import { MessageType } from '../../enum/messagetype.enum';
-import { Message } from '../../interfaces/message.interface';
+import { Message } from '../../../interfaces/message.interface';
+import { MessageType } from '../../../enum/messagetype.enum';
 
 @Component({
   selector: 'app-message-item',

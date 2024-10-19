@@ -3,9 +3,9 @@ import { Chat } from '../../interfaces/chat.interface';
 import { Message } from '../../interfaces/message.interface';
 import { ChatService } from '../../services/chat.service';
 import { HeaderComponent } from './header/header.component';
-import { MessageInputComponent } from '../message-input/message-input.component';
-import { MessageListComponent } from '../message-list/message-list.component';
 import { MessageType } from '../../enum/messagetype.enum';
+import { MessageInputComponent } from './message-input/message-input.component';
+import { MessageListComponent } from './message-list/message-list.component';
 
 @Component({
   selector: 'app-home',

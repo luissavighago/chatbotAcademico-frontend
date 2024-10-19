@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Message } from '../../interfaces/message.interface';
-import { MessageType } from '../../enum/messagetype.enum';
 import { FormsModule } from '@angular/forms';
+import { Message } from '../../../interfaces/message.interface';
+import { MessageType } from '../../../enum/messagetype.enum';
 
 @Component({
   selector: 'app-message-input',
