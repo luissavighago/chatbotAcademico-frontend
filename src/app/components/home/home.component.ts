@@ -1,11 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { Chat } from '../../interfaces/chat.interface';
 import { Message } from '../../interfaces/message.interface';
-import { ChatService } from '../../services/chat.service';
+import { ChatService } from '../../services/chat/chat.service';
 import { HeaderComponent } from './header/header.component';
 import { MessageType } from '../../enum/messagetype.enum';
 import { MessageInputComponent } from './message-input/message-input.component';
 import { MessageListComponent } from './message-list/message-list.component';
+import { MsgDialogService } from '../../services/msg/msg-dialog.service';
+import { MsgDialogType } from '../../enum/msgdialogtype.enum';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +18,7 @@ import { MessageListComponent } from './message-list/message-list.component';
 })
 export class HomeComponent {
   chatService = inject(ChatService);
+  msgDialogService = inject(MsgDialogService);
   chat: Chat;
 
   constructor() {
@@ -24,15 +27,16 @@ export class HomeComponent {
 
   onMessageSubmitted(message: Message) {
     this.chat.messages?.push(message);
-    console.log("Enviando mensagem: ", message);
     this.chatService.sendMessage(this.getPayload(message)).subscribe(
       (response) => {
-        console.log("Resposta recebida: ", response);
         this.tratarResposta(response);
       },
       (error) => {
-        console.error("Erro ao enviar mensagem: ", error);
-        // TODO - Apresentar dialog com mensagem de erro
+        this.msgDialogService.openDialog({
+          title: 'Ops, algo deu errado!',
+          message: 'Erro ao enviar mensagem, tente novamente.',
+          type: MsgDialogType.Ok}
+        );
       }
     );
   }
@@ -43,7 +47,6 @@ export class HomeComponent {
       payload.idChat = this.chat.id;
     }
     payload.question = message.text;
-    console.log("Payload: ", payload);
     return payload;
   }
 
@@ -69,8 +72,7 @@ export class HomeComponent {
       return false;
     } 
     if (!response.success || !response?.data) {
-      console.log("Response data not found.");
-      return ;
+      return false;
     }
   
     if (!response.data.idChat || !response.data.idQuestion || !response.data.idAnswer || !response.data.answer) {
