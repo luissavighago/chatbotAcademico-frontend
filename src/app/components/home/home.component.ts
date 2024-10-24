@@ -34,9 +34,9 @@ export class HomeComponent {
       (error) => {
         this.msgDialogService.openDialog({
           title: 'Ops, algo deu errado!',
-          message: 'Erro ao enviar mensagem, tente novamente.',
-          type: MsgDialogType.Ok}
-        );
+          message: 'Falha ao enviar mensagem, tente novamente.',
+          type: MsgDialogType.Ok,
+        });
       }
     );
   }
@@ -51,7 +51,7 @@ export class HomeComponent {
   }
 
   tratarResposta(response: any) {
-    if(!this.responseIsValid(response)) {
+    if (!this.responseIsValid(response)) {
       return;
     }
 
@@ -60,7 +60,7 @@ export class HomeComponent {
     const message: Message = {
       id: response.data.idAnswer,
       text: response.data.answer,
-      type: MessageType.Answer
+      type: MessageType.Answer,
     };
 
     this.chat.messages?.push(message);
@@ -70,23 +70,26 @@ export class HomeComponent {
     if (response?.error && response?.error.status && response?.error.err) {
       console.error(`Error: ${response.error.status} - ${response.error.err}`);
       return false;
-    } 
+    }
     if (!response.success || !response?.data) {
       return false;
     }
-  
-    if (!response.data.idChat || !response.data.idQuestion || !response.data.idAnswer || !response.data.answer) {
+
+    if (
+      !response.data.idChat || !response.data.idQuestion ||
+      !response.data.idAnswer || !response.data.answer
+    ) {
       console.error('Response is missing required properties.');
       return false;
     }
-  
+
     if (response.data.answer == null || response.data.answer.trim() === '') {
       console.error('Answer is not a valid string.');
       return false;
     }
-  
-    console.log("Response is valid.");
-  
+
+    console.log('Response is valid.');
+
     return true;
   }
 }

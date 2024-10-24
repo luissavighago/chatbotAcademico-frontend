@@ -17,11 +17,23 @@ export class MessageInputComponent {
   @Output() messageSubmitted = new EventEmitter<Message>();
 
   onSubmit() {
+    if (!this.questionIsValid()) {
+      return;
+    }
+
     this.message = {
       text: this.question,
       type: MessageType.Question
     };
+
     this.question = ""
     this.messageSubmitted.emit(this.message)
+  }
+
+  questionIsValid(): boolean {
+    if (this.question.trim().length === 0) {
+      return false;
+    }
+    return true;
   }
 }
