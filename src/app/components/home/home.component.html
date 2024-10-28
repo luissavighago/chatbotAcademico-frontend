@@ -10,6 +10,10 @@
         <app-message-list [messages]="chat.messages"></app-message-list>
       </div>
     }
-    <app-message-input (messageSubmitted)="onMessageSubmitted($event)" class="home-message-input-container"></app-message-input>
+    <app-message-input
+      (messageSubmitted)="onMessageSubmitted($event)"
+      class="home-message-input-container"
+      [isDisabled]="isLoading"
+    ></app-message-input>
   </div>
 </main>

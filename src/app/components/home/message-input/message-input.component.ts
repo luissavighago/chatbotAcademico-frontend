@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Message } from '../../../interfaces/message.interface';
 import { MessageType } from '../../../enum/messagetype.enum';
@@ -14,6 +14,7 @@ export class MessageInputComponent {
   question: string = "";
   message?: Message;
 
+  @Input() isDisabled: boolean = false;
   @Output() messageSubmitted = new EventEmitter<Message>();
 
   onSubmit() {

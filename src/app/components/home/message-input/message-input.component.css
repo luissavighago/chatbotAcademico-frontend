@@ -33,3 +33,16 @@
   border: solid 1px;
   border-color: var(--secondary-color);
 }
+
+.message-input:disabled {
+  background-color: var(--primary-color-disabled);
+  color: var(--secondary-color-disabled);
+  border-color: var(--secondary-color);
+}
+
+.send-button:disabled {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: solid 1px;
+  border-color: var(--secondary-color);
+}

@@ -19,6 +19,8 @@ import { MsgDialogType } from '../../enum/msgdialogtype.enum';
 export class HomeComponent {
   chatService = inject(ChatService);
   msgDialogService = inject(MsgDialogService);
+
+  isLoading: boolean = false;
   chat: Chat;
 
   constructor() {
@@ -27,9 +29,11 @@ export class HomeComponent {
 
   onMessageSubmitted(message: Message) {
     this.chat.messages?.push(message);
+    this.isLoading = true;
     this.chatService.sendMessage(this.getPayload(message)).subscribe(
       (response) => {
         this.tratarResposta(response);
+        this.isLoading = false;
       },
       (error) => {
         this.msgDialogService.openDialog({
@@ -37,6 +41,7 @@ export class HomeComponent {
           message: 'Falha ao enviar mensagem, tente novamente.',
           type: MsgDialogType.Ok,
         });
+        this.isLoading = false;
       }
     );
   }
