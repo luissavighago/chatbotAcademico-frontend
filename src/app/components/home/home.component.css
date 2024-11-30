@@ -45,3 +45,23 @@
   min-width: 100%;
   gap: 15px;
 }
+.home-progress-bar-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+@media (max-width: 700px) {
+  .home-title{
+    text-align: left;
+    font-size: 2.5rem;
+    color: var(--text-color);
+  }
+}
+
+@media (max-width: 600px) {
+  .home-title{
+    padding-left: 30px;
+  }
+}

@@ -8,11 +8,12 @@ import { MessageInputComponent } from './message-input/message-input.component';
 import { MessageListComponent } from './message-list/message-list.component';
 import { MsgDialogService } from '../../services/msg/msg-dialog.service';
 import { MsgDialogType } from '../../enum/msgdialogtype.enum';
+import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, MessageInputComponent, MessageListComponent],
+  imports: [HeaderComponent, MessageInputComponent, MessageListComponent, ProgressBarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

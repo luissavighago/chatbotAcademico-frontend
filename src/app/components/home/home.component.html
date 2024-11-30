@@ -10,6 +10,9 @@
         <app-message-list [messages]="chat.messages"></app-message-list>
       </div>
     }
+    @if(isLoading){
+      <app-progress-bar class="home-progress-bar-container"></app-progress-bar>
+    }
     <app-message-input
       (messageSubmitted)="onMessageSubmitted($event)"
       class="home-message-input-container"

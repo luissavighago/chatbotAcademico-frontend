@@ -27,3 +27,15 @@ body{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mdc-linear-progress {
+  outline: 20px solid rgba(0,0,0,0) !important;
+}
+
+.mdc-linear-progress__buffer-bar {
+  background-color: var(--primary-color) !important;
+}
+
+.mdc-linear-progress__bar-inner {
+  border-color: var(--text-color) !important;
+}
