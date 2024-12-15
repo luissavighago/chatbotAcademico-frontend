@@ -10,6 +10,7 @@ import { MsgDialogService } from '../../services/msg/msg-dialog.service';
 import { MsgDialogType } from '../../enum/msgdialogtype.enum';
 import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
 import { FeedbackStatus } from '../../enum/feedbackstatus.enum';
+import { UUID } from 'crypto';
 
 @Component({
   selector: 'app-home',
@@ -44,6 +45,28 @@ export class HomeComponent {
           type: MsgDialogType.Ok,
         });
         this.isLoading = false;
+      }
+    );
+  }
+
+  onEvaluateResponse(params: { id: UUID, feedbackStatus: FeedbackStatus }) {
+    
+    if (!this.chat.messages) {
+      return;
+    }
+
+    const messageIndex = this.chat.messages?.findIndex(msg => msg.id === params.id);
+    if (messageIndex === undefined || messageIndex < 0) {
+      return;
+    }
+  
+    this.chat.messages[messageIndex].feedbackStatus = params.feedbackStatus;
+
+    this.chatService.evaluateResponse(params.id, {"feedbackStatus":params.feedbackStatus}).subscribe(
+      (response) => {},
+      (error) => {
+        console.log("Falha ao enviar feedback");
+        this.chat.messages![messageIndex].feedbackStatus = FeedbackStatus.Unrated;
       }
     );
   }

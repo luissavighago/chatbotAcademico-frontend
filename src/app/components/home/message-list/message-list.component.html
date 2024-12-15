@@ -1,3 +1,6 @@
 @for(message of messages; track message.id){
-  <app-message-item [message]="message"></app-message-item>
+  <app-message-item
+    [message]="message"
+    (evaluateResponse)="onEvaluateResponse($event)"
+  ></app-message-item>
 }

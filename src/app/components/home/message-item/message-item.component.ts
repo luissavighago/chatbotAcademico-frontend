@@ -1,9 +1,9 @@
-import { Component, input, computed, inject } from '@angular/core';
+import { Component, input, computed, inject, Output, EventEmitter, Input } from '@angular/core';
 import { Message } from '../../../interfaces/message.interface';
 import { MessageType } from '../../../enum/messagetype.enum';
 import { FeedbackStatus } from '../../../enum/feedbackstatus.enum';
 import { MatIconModule } from '@angular/material/icon';
-import { ChatService } from '../../../services/chat/chat.service';
+import { UUID } from 'node:crypto';
 @Component({
   selector: 'app-message-item',
   standalone: true,
@@ -12,35 +12,20 @@ import { ChatService } from '../../../services/chat/chat.service';
   styleUrl: './message-item.component.css'
 })
 export class MessageItemComponent {
-  message = input.required<Message>();
+  @Input() message!: Message;
+  @Output() evaluateResponse = new EventEmitter<{id: UUID, feedbackStatus: FeedbackStatus}>();
+
   MessageType = MessageType;
   FeedbackStatus = FeedbackStatus;
-  chatService = inject(ChatService);
-
-  messageText = computed(() => this.message().text);
-  messageType = computed(() => this.message().type);
-  messageFeedbackStatus = computed(() => this.message().feedbackStatus);
 
   onClickFeedback(feedbackStatus: FeedbackStatus) {
-    if(this.message().feedbackStatus === feedbackStatus) {
+    if(this.message.feedbackStatus === feedbackStatus) {
       return;
     }
-    const messageId = this.message().id;
-    if (!messageId) {
-      return;
-    }
+    const messageId = this.message.id;
+    if (!messageId) {return;}
 
-    this.message().feedbackStatus = feedbackStatus;
-
-    this.chatService.evaluateResponse(messageId, {"feedbackStatus":feedbackStatus}).subscribe(
-      (response) => {
-        console.log("Feedback enviado com sucesso");
-      },
-      (error) => {
-        console.log("Falha ao enviar feedback");
-        this.message().feedbackStatus = FeedbackStatus.Unrated;
-      }
-    );
+    this.evaluateResponse.emit({ id: messageId, feedbackStatus: feedbackStatus })
   }
 
   getPayload(message: Message): any {

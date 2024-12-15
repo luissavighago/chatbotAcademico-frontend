@@ -7,7 +7,10 @@
       </div>
     }@else{
       <div class="home-messages-container">
-        <app-message-list [messages]="chat.messages"></app-message-list>
+        <app-message-list
+          [messages]="chat.messages"
+          (evaluateResponse)="onEvaluateResponse($event)"
+        ></app-message-list>
       </div>
     }
     @if(isLoading){
