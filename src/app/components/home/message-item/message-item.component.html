@@ -1,11 +1,35 @@
 <div class="message-item">
-  <div class="sender">
-    @if(messageType() === MessageType.Question){
-      <div class="avatar user"></div>
-    }@else {
-      <div class="avatar chatbot"></div>
+  <div class="message-header-container">
+    <div class="sender">
+      @if(messageType() === MessageType.Question){
+        <div class="avatar user"></div>
+      }@else {
+        <div class="avatar chatbot"></div>
+      }
+      <span class="sender-name">{{ messageType() === MessageType.Question ? 'Você' : 'Chatbot'}}</span>
+    </div>
+    @if(messageType() === MessageType.Answer){
+      <div class="actions-container">
+        <a mat-icon-button aria-label="action-like" (click)="onClickFeedback(FeedbackStatus.Positive)">
+          <mat-icon>
+            @if(messageFeedbackStatus() === FeedbackStatus.Positive){
+              thumb_up
+            }@else{
+              thumb_up_off_alt
+            }
+          </mat-icon>
+        </a>
+        <a mat-icon-button aria-label="action-dislike" (click)="onClickFeedback(FeedbackStatus.Negative)">
+          <mat-icon>
+            @if(messageFeedbackStatus() === FeedbackStatus.Negative){
+              thumb_down
+            }@else{
+              thumb_down_off_alt
+            }
+          </mat-icon>
+        </a>
+      </div>
     }
-    <span class="sender-name">{{ messageType() === MessageType.Question ? 'Você' : 'Chatbot'}}</span>
   </div>
   <div class="message-content"> 
     <p class="message-text">{{messageText()}}</p>

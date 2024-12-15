@@ -45,6 +45,9 @@
   min-width: 100%;
   gap: 15px;
 }
+app-message-list{
+  width: 100%;
+}
 .home-progress-bar-container{
   display: flex;
   justify-content: center;

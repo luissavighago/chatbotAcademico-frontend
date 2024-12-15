@@ -9,6 +9,7 @@ import { MessageListComponent } from './message-list/message-list.component';
 import { MsgDialogService } from '../../services/msg/msg-dialog.service';
 import { MsgDialogType } from '../../enum/msgdialogtype.enum';
 import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
+import { FeedbackStatus } from '../../enum/feedbackstatus.enum';
 
 @Component({
   selector: 'app-home',
@@ -67,6 +68,7 @@ export class HomeComponent {
       id: response.data.idAnswer,
       text: response.data.answer,
       type: MessageType.Answer,
+      feedbackStatus: FeedbackStatus.Unrated
     };
 
     this.chat.messages?.push(message);

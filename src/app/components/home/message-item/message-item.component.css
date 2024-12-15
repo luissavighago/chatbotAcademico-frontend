@@ -8,6 +8,21 @@
   min-width: 100%;
 }
 
+.message-header-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.actions-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 .sender{
   display: flex;
   justify-content: flex-start;
