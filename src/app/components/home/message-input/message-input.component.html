@@ -5,6 +5,7 @@
     placeholder="Escreva uma mensagem..."
     class="message-input"
     [disabled]="isDisabled"
+    (keypress)="onKeyPress($event)"
   />
   <button class="send-button" (click)="onSubmit()" [disabled]="isDisabled">Enviar</button>
 </div>

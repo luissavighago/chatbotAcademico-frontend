@@ -31,6 +31,13 @@ export class MessageInputComponent {
     this.messageSubmitted.emit(this.message)
   }
 
+  onKeyPress(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      alert("Enter key pressed");
+      this.onSubmit();
+    }
+  }
+
   questionIsValid(): boolean {
     if (this.question.trim().length === 0) {
       return false;
