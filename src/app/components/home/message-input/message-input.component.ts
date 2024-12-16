@@ -33,7 +33,6 @@ export class MessageInputComponent {
 
   onKeyPress(event: KeyboardEvent) {
     if (event.key === 'Enter') {
-      alert("Enter key pressed");
       this.onSubmit();
     }
   }
