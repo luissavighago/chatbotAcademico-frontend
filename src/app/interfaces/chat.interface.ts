@@ -3,5 +3,6 @@ import { Message } from "./message.interface";
 
 export interface Chat {
   id?: UUID;
-  messages?: Message[]
+  messages?: Message[],
+  apiKey?: string;
 }

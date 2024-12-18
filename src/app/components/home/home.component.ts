@@ -27,7 +27,7 @@ export class HomeComponent {
   chat: Chat;
 
   constructor() {
-    this.chat = { messages: [] };
+    this.chat = { messages: [], apiKey: "" };
   }
 
   onMessageSubmitted(message: Message) {
@@ -76,7 +76,11 @@ export class HomeComponent {
     if (this.chat.id != null) {
       payload.idChat = this.chat.id;
     }
+    if(this.chat.apiKey != null && this.chat.apiKey.trim() !== ""){
+      payload.apiKey = this.chat.apiKey;
+    }
     payload.question = message.text;
+
     return payload;
   }
 

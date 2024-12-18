@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>OpenAI API Key</h2>
+<mat-dialog-content>
+  <p>Insira sua chave da API OpenAI. Garantimos que nenhuma informação será armazenada, compartilhada ou exibida.</p>
+  <mat-form-field>
+    <mat-label>API Key</mat-label>
+    <input matInput [(ngModel)]="key" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="key()" cdkFocusInitial>Ok</button>
+</mat-dialog-actions>
