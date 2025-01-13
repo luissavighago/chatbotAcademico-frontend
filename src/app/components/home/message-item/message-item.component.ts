@@ -20,7 +20,7 @@ export class MessageItemComponent {
 
   onClickFeedback(feedbackStatus: FeedbackStatus) {
     if(this.message.feedbackStatus === feedbackStatus) {
-      return;
+      feedbackStatus = FeedbackStatus.Unrated;
     }
     const messageId = this.message.id;
     if (!messageId) {return;}
