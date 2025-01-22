@@ -1,0 +1,43 @@
+<div class="prompt-message-item">
+  @if(this.message.type === MessageType.Answer){
+    <div class="prompt-message-header-container">
+      <div class="sender">
+          <div class="avatar chatbot"></div>
+          <span class="sender-name">
+              {{
+                this.message.promptTechnique === PromptTechnique.ZeroShot ? 'Zero Shot' : 
+                this.message.promptTechnique === PromptTechnique.FewShot ? 'Few Shot' : 
+                this.message.promptTechnique === PromptTechnique.ChainOfThought ? 'Chain of Thought' : 'Chatbot'
+              }}
+          </span>
+      </div>
+      <div class="actions-container">
+        <a mat-icon-button aria-label="action-like" (click)="onClickFeedback(FeedbackStatus.Positive)">
+          <mat-icon>
+            @if(this.message.feedbackStatus === FeedbackStatus.Positive){
+              thumb_up
+            }@else{
+              thumb_up_off_alt
+            }
+          </mat-icon>
+        </a>
+        <a mat-icon-button aria-label="action-dislike" (click)="onClickFeedback(FeedbackStatus.Negative)">
+          <mat-icon>
+            @if(this.message.feedbackStatus === FeedbackStatus.Negative){
+              thumb_down
+            }@else{
+              thumb_down_off_alt
+            }
+          </mat-icon>
+        </a>
+      </div>
+    </div>
+    <div class="prompt-message-content"> 
+      <p class="prompt-message-text">{{this.message.text}}</p>
+    </div>
+  }@else {
+    <div class="prompt-question-container"> 
+      <p class="prompt-question-text">{{this.message.text}}</p>
+    </div>
+  }
+</div>

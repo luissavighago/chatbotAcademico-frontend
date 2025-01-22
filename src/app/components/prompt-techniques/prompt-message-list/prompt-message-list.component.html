@@ -1,0 +1,7 @@
+@for(message of messages; track message.id){
+  <app-prompt-message-item
+    [message]="message"
+    (evaluateResponse)="onEvaluateResponse($event)"
+  ></app-prompt-message-item>
+}
+

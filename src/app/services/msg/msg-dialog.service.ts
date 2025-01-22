@@ -17,5 +17,5 @@ export class MsgDialogService {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
-  }
+  } 
 }

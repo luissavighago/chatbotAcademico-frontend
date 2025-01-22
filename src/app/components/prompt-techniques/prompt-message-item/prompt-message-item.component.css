@@ -1,0 +1,95 @@
+.prompt-message-item {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 20px 0;
+  gap: 10px;
+  min-width: 100%;
+}
+
+.prompt-message-header-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.prompt-message-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.prompt-message-text {
+  color: var(--text-color);
+  padding-left: 40px;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.sender{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.sender-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.chatbot {
+  background-color: cyan;
+}
+
+.prompt-message-text {
+  color: var(--text-color);
+  padding-left: 40px;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.prompt-question-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.prompt-question-text{
+  color: var(--text-color);
+  width: 100%;
+  word-wrap: break-word;
+  font-size: 1.2rem;
+}
+
+.actions-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .sender-name{
+    font-size: 1rem;
+  }
+  .prompt-message-text{
+    font-size: 1rem;
+  }
+  .avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}

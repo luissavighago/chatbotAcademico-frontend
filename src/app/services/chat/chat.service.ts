@@ -15,6 +15,10 @@ export class ChatService {
     return this.httpClient.post<any>("http://localhost:8080/chatbot/ask", payload);
   }
 
+  sendMessagePrompts(payload: any) {
+    return this.httpClient.post<any>("http://localhost:8080/prompts/ask", payload);
+  }
+
   evaluateResponse(id:UUID, payload: {}) {
     return this.httpClient.put<any>("http://localhost:8080/chatbot/evaluate-answer/"+id, payload);
   }

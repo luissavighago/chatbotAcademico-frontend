@@ -1,0 +1,91 @@
+.prompt-main-container{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  width: 100%;
+}
+
+.prompt-chat-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  padding: 18px;
+  gap: 18px;
+  min-height: 100%;
+  margin-top: 40px;
+}
+
+.prompt-title-container{
+  flex:1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.prompt-title{
+  text-align: center;
+  font-size: 3rem;
+  color: var(--text-color);
+}
+
+.prompt-message-input-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.prompt-messages-container{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-width: 100%;
+  gap: 15px;
+}
+
+app-prompt-message-list{
+  width: 100%;
+}
+
+.prompt-progress-bar-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.prompt-subtitle-container{
+  flex:1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.prompt-subtitle{
+  text-align: center;
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+@media (max-width: 700px) {
+  .prompt-title{
+    text-align: left;
+    font-size: 2.5rem;
+    color: var(--text-color);
+  }
+}
+
+@media (max-width: 600px) {
+  .prompt-title{
+    padding-left: 30px;
+  }
+}

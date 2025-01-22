@@ -1,22 +1,25 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Message } from '../../../interfaces/message.interface';
-import { MessageType } from '../../../enum/messagetype.enum';
+import { UUID } from 'crypto';
 import { FeedbackStatus } from '../../../enum/feedbackstatus.enum';
+import { MessageType } from '../../../enum/messagetype.enum';
+import { PromptTechnique } from '../../../enum/prompttechnique.enum';
 import { MatIconModule } from '@angular/material/icon';
-import { UUID } from 'node:crypto';
+
 @Component({
-  selector: 'app-message-item',
+  selector: 'app-prompt-message-item',
   standalone: true,
   imports: [MatIconModule],
-  templateUrl: './message-item.component.html',
-  styleUrl: './message-item.component.css'
+  templateUrl: './prompt-message-item.component.html',
+  styleUrl: './prompt-message-item.component.css'
 })
-export class MessageItemComponent {
+export class PromptMessageItemComponent {
   @Input() message!: Message;
   @Output() evaluateResponse = new EventEmitter<{id: UUID, feedbackStatus: FeedbackStatus}>();
 
   MessageType = MessageType;
   FeedbackStatus = FeedbackStatus;
+  PromptTechnique = PromptTechnique;
 
   onClickFeedback(feedbackStatus: FeedbackStatus) {
     if(this.message.feedbackStatus === feedbackStatus) {

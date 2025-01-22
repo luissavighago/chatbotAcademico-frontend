@@ -5,5 +5,6 @@ export interface Message {
   id?: UUID,
   text?: string,
   type?: MessageType,
-  feedbackStatus?: string
+  feedbackStatus?: string,
+  promptTechnique?: string
 }
