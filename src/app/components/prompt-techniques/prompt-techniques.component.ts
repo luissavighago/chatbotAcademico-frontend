@@ -35,6 +35,7 @@ export class PromptTechniquesComponent {
 
   onMessageSubmitted(message: Message) {
     this.userMessage = message;
+    this.clearAnswerList();
     this.isLoading = true;
     this.chatService.sendMessagePrompts(this.getPayload(message)).subscribe(
       (response) => {
@@ -135,5 +136,14 @@ export class PromptTechniquesComponent {
     console.log('Response is valid.');
 
     return true;
+  }
+
+  clearAnswerList() {
+    if (this.chat.messages) {
+      this.chat.messages = [];
+    }
+    if (this.chat.id) {
+      this.chat.id = undefined;
+    }
   }
 }

@@ -12,14 +12,14 @@ export class ChatService {
   constructor() { }
 
   sendMessage(payload: any) {
-    return this.httpClient.post<any>("http://localhost:8080/chatbot/ask", payload);
+    return this.httpClient.post<any>("http://98.81.55.46:8080/chatbot/ask", payload);
   }
 
   sendMessagePrompts(payload: any) {
-    return this.httpClient.post<any>("http://localhost:8080/prompts/ask", payload);
+    return this.httpClient.post<any>("http://98.81.55.46:8080/prompts/ask", payload);
   }
 
   evaluateResponse(id:UUID, payload: {}) {
-    return this.httpClient.put<any>("http://localhost:8080/chatbot/evaluate-answer/"+id, payload);
+    return this.httpClient.put<any>("http://98.81.55.46:8080/chatbot/evaluate-answer/"+id, payload);
   }
 }
