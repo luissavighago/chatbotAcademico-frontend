@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+  my-chatbot-academico-frontend:
+    build:
+      context: .
+      dockerfile: DockerFile
+    image: luissavighago/chatbot-academico-frontend
+    container_name: my-chatbot-academico-frontend
+    restart: on-failure
+    ports:
+      - "9889:80"
